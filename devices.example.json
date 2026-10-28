@@ -1,0 +1,114 @@
+[
+  {
+    "device_id": "BAL-001",
+    "type": "balance",
+    "name": "Analytical Balance / Лабораторные весы",
+    "manufacturer": "Mettler Toledo",
+    "model": "XPR226DR",
+    "serial": "A2K4-771-01",
+    "location": "Weighing room 101",
+    "protocols": [
+      "rest",
+      "labx",
+      "astm"
+    ],
+    "tcp_enabled": true,
+    "panel": "WEIGHING"
+  },
+  {
+    "device_id": "CHR-001",
+    "type": "chromatograph_gc",
+    "name": "Gas Chromatograph / Газовый хроматограф",
+    "manufacturer": "Agilent",
+    "model": "8890 GC",
+    "serial": "GC-8890-4412",
+    "location": "Chromatography lab 204",
+    "protocols": [
+      "rest",
+      "astm",
+      "fhir"
+    ],
+    "tcp_enabled": true,
+    "panel": "GC-ASSAY"
+  },
+  {
+    "device_id": "CHR-002",
+    "type": "chromatograph_hplc",
+    "name": "HPLC Chromatograph / Жидкостный хроматограф",
+    "manufacturer": "Shimadzu",
+    "model": "LC-2050C",
+    "serial": "LC2050-99381",
+    "location": "Chromatography lab 204",
+    "protocols": [
+      "rest",
+      "labx",
+      "fhir"
+    ],
+    "tcp_enabled": false,
+    "panel": "HPLC-ASSAY"
+  },
+  {
+    "device_id": "ANA-001",
+    "type": "analyzer_chem",
+    "name": "Clinical Chemistry Analyzer / Биохимический анализатор",
+    "manufacturer": "Roche",
+    "model": "cobas c311",
+    "serial": "C311-2019-088",
+    "location": "Clinical lab 102",
+    "protocols": [
+      "rest",
+      "astm",
+      "hl7v2"
+    ],
+    "tcp_enabled": true,
+    "panel": "BIOCHEM"
+  },
+  {
+    "device_id": "ANA-002",
+    "type": "analyzer_hema",
+    "name": "Hematology Analyzer / Гематологический анализатор",
+    "manufacturer": "Sysmex",
+    "model": "XN-1000",
+    "serial": "XN1000-55210",
+    "location": "Clinical lab 102",
+    "protocols": [
+      "rest",
+      "astm",
+      "hl7v2",
+      "fhir"
+    ],
+    "tcp_enabled": true,
+    "panel": "HEMOGRAM"
+  },
+  {
+    "device_id": "PHM-001",
+    "type": "ph_meter",
+    "name": "pH Meter / pH-метр",
+    "manufacturer": "Mettler Toledo",
+    "model": "SevenExcellence S400",
+    "serial": "S400-73012",
+    "location": "QC lab 103",
+    "protocols": [
+      "rest",
+      "labx"
+    ],
+    "tcp_enabled": false,
+    "panel": "PH-TEST"
+  },
+  {
+    "device_id": "SPC-001",
+    "type": "spectrophotometer",
+    "name": "UV Spectrophotometer / Спектрофотометр",
+    "manufacturer": "Shimadzu",
+    "model": "UV-1900i",
+    "serial": "UV1900-A4471",
+    "location": "QC lab 103",
+    "protocols": [
+      "rest",
+      "fhir",
+      "labx"
+    ],
+    "tcp_enabled": false,
+    "panel": "UV-SCAN"
+  }
+]

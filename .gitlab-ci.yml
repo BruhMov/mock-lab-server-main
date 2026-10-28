@@ -1,0 +1,53 @@
+stages:
+  - build
+  - test
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  PYTHONUNBUFFERED: "1"
+
+# Cache dependencies to speed up pipeline runs
+cache:
+  key: "${CI_COMMIT_REF_SLUG}-python"
+  paths:
+    - .cache/pip
+    - venv/
+
+build_app:
+  stage: build
+  image: python:3.11-slim
+  tags:
+    - docker 
+  script:
+    - echo "Installing runtime dependencies..."
+    - python -m venv venv
+    - source venv/bin/activate
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+    - echo "Verifying Python syntax and imports..."
+    - python -m compileall app/
+  artifacts:
+    paths:
+      - venv/
+    expire_in: 1 hour
+
+run_tests:
+  stage: test
+  image: python:3.11-slim
+  tags:
+    - docker  
+  needs: ["build_app"]
+  script:
+    - source venv/bin/activate
+    - echo "Installing development dependencies..."
+    - pip install -r requirements-dev.txt
+    - echo "Running pytest suite..."
+    # pytest.ini automatically applies testpaths=tests and pythonpath=.
+    - python -m pytest --junitxml=report.xml --cov=app --cov-report=xml
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
